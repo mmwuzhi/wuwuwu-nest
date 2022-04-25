@@ -1,0 +1,12 @@
+printWidth: 100 # 单行长度
+tabWidth: 2 # 缩进长度
+useTabs: false # false: 空格缩进
+semi: false # 句尾分号
+singleQuote: true # 单引号
+quoteProps: 'as-needed' # 仅在必须时为对象的key添加引号
+jsxSingleQuote: false # jsx中双引号
+trailingComma: 'all' # 尾随逗号
+bracketSpacing: true # 对象前后添加空格
+jsxBracketSameLine: false # jsx标签的'>'换行
+arrowParens: 'always' # 箭头函数参数永远加括号
+endOfLine: 'lf' # 换行符

@@ -17,6 +17,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/main-app/tsconfig.app.json"
       }
+    },
+    "calc-service": {
+      "type": "application",
+      "root": "apps/calc-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/calc-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/calc-service/tsconfig.app.json"
+      }
     }
   }
 }

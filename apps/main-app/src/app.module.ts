@@ -15,6 +15,15 @@ import { CalcController } from './calc/calc.controller'
         },
       },
     ]),
+    ClientsModule.register([
+      {
+        name: 'LOG_SERVICE',
+        transport: Transport.TCP,
+        options: {
+          port: 9999,
+        },
+      },
+    ]),
   ],
   controllers: [AppController, CalcController],
   providers: [AppService],

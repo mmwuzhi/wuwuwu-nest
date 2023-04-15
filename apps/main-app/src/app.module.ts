@@ -11,6 +11,7 @@ import { CalcController } from './calc/calc.controller'
         name: 'CALC_SERVICE',
         transport: Transport.TCP,
         options: {
+          host: process.env.MAIN_HOST,
           port: 8888,
         },
       },
@@ -20,6 +21,7 @@ import { CalcController } from './calc/calc.controller'
         name: 'LOG_SERVICE',
         transport: Transport.TCP,
         options: {
+          host: process.env.MAIN_HOST,
           port: 9999,
         },
       },

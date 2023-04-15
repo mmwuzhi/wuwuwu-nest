@@ -1,0 +1,37 @@
+version: '3.8'
+
+x-docker-data: &docker-file-info
+  context: .
+  dockerfile: ./Dockerfile
+x-env-data: &env
+  env_file:
+    - ./.env
+
+services:
+  main-app:
+    <<: *env
+    build:
+      <<: *docker-file-info
+      args:
+        SERVICE_NAME: main-app
+    depends_on:
+      - calc-service
+      - log-service
+    ports:
+      - '3000:3000'
+  calc-service:
+    <<: *env
+    build:
+      <<: *docker-file-info
+      args:
+        SERVICE_NAME: calc-service
+    ports:
+      - '8888:8888'
+  log-service:
+    <<: *env
+    build:
+      <<: *docker-file-info
+      args:
+        SERVICE_NAME: log-service
+    ports:
+      - '9999:9999'

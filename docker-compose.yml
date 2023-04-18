@@ -35,3 +35,16 @@ services:
         SERVICE_NAME: log-service
     ports:
       - '9999:9999'
+  db:
+    image: postgres
+    container_name: postgres
+    command: -c 'config_file=/etc/postgresql/postgresql.conf'
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+      - ./db/script:/docker-entrypoint-initdb.d
+      - ./db/config/postgresql.conf:/etc/postgresql/postgresql.conf
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

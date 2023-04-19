@@ -7,4 +7,8 @@ export class AuthorsService {
   async findOneById(id: number): Promise<Author> {
     return authorsMock.find((curr) => curr.id === id)
   }
+
+  async findAll(): Promise<Author[]> {
+    return authorsMock
+  }
 }

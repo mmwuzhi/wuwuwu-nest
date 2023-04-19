@@ -13,8 +13,18 @@ export class AuthorsResolver {
     return await this.authorsService.findOneById(id)
   }
 
+  @Query(() => [Author], { name: 'authors' })
+  async getAuthors(@Args('ids', { type: () => [Int] }) ids: number[]) {
+    return await Promise.all(ids.map(async (id) => await this.authorsService.findOneById(id)))
+  }
+
+  @Query(() => [Author], { name: 'allAuthors' })
+  async getAllAuthors() {
+    return await this.authorsService.findAll()
+  }
+
   @ResolveField('posts', () => [Post])
-  async getPosts(@Parent() author: Author) {
+  async getPosts(@Parent() author: Author): Promise<Post[]> {
     const { id } = author
     return await this.postsService.findAll({ authorId: id })
   }

@@ -19,4 +19,6 @@ type Author {
 
 type Query {
   author(id: Int!): Author!
+  authors(ids: [Int!]!): [Author!]!
+  allAuthors: [Author!]!
 }

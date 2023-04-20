@@ -22,3 +22,13 @@ type Query {
   authors(ids: [Int!]!): [Author!]!
   allAuthors: [Author!]!
 }
+
+type Mutation {
+  addAuthorPost(addPost: PostInput!, authorId: Int!): Author!
+}
+
+input PostInput {
+  """post title"""
+  title: String!
+  votes: Int
+}

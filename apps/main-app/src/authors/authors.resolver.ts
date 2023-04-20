@@ -32,7 +32,7 @@ export class AuthorsResolver {
     const author = await this.authorsService.findOneById(authorId)
 
     // TODO: The data actually sent to the client is different from this return value because the logic for retrieving posts was overridden by getPosts.
-    return { ...author, posts: [...author.posts, { id: 999, ...post }] }
+    return { ...author, posts: [...author.posts, { id: 999, ...post, comments: [] }] }
   }
 
   @ResolveField('posts', () => [Post])

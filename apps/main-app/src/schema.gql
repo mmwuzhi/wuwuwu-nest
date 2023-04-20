@@ -2,12 +2,20 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Comment {
+  id: Int!
+
+  """comment content"""
+  content: String!
+}
+
 type Post {
   id: Int!
 
   """post title"""
   title: String!
   votes: Int
+  comments: [Comment]!
 }
 
 type Author {
@@ -25,10 +33,20 @@ type Query {
 
 type Mutation {
   addAuthorPost(addPost: PostInput!, authorId: Int!): Author!
+  addComment(comment: CommentInput!): Post!
 }
 
 input PostInput {
   """post title"""
   title: String!
   votes: Int
+}
+
+input CommentInput {
+  """comment content"""
+  content: String!
+}
+
+type Subscription {
+  commentAdded(keyword: String!): Comment!
 }

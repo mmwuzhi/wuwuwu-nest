@@ -23,6 +23,10 @@ import { PostsModule } from './posts/posts.module'
       playground: false,
       // enable apollo sandbox
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      // enable subscription with graphql-ws
+      subscriptions: {
+        'graphql-ws': true,
+      },
     }),
     ClientsModule.register([
       {

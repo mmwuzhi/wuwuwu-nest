@@ -4,5 +4,6 @@ export const postsMock: Post[] = [
   {
     id: 1,
     title: '123',
+    comments: [],
   },
 ]

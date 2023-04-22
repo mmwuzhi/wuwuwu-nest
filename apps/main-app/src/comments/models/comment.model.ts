@@ -1,4 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { Dayjs } from 'dayjs'
+import { DateScalar } from '../../common/scalars/date.sclar'
 
 @ObjectType()
 export class Comment {
@@ -7,4 +9,7 @@ export class Comment {
 
   @Field({ description: 'comment content' })
   content: string
+
+  @Field(() => DateScalar)
+  date: Dayjs
 }

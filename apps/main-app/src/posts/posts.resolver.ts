@@ -1,5 +1,6 @@
 import { Args, Mutation, Resolver, Subscription } from '@nestjs/graphql'
 import { PubSub } from 'graphql-subscriptions'
+import dayjs from 'dayjs'
 import { Post } from './models/post.model'
 import { Comment } from '../comments/models/comment.model'
 import { CommentInput } from '../comments/models/commentInput.model'
@@ -27,7 +28,7 @@ export class PostsResolver {
   async addComment(
     @Args('comment', { type: () => CommentInput }) comment: CommentInput,
   ): Promise<Post> {
-    const newComment: Comment = { id: 999, content: comment.content }
+    const newComment: Comment = { id: 999, content: comment.content, date: dayjs() }
     pubSub.publish(COMMENT_ADDED, newComment)
 
     return { id: 123, title: 'test', comments: [newComment] }

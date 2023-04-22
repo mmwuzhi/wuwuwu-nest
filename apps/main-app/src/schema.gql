@@ -25,6 +25,9 @@ type Author {
   posts: [Post!]!
 }
 
+"""Date custom scalar type"""
+scalar Date
+
 type Query {
   author(id: Int!): Author!
   authors(ids: [Int!]!): [Author!]!

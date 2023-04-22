@@ -11,11 +11,13 @@ import { AuthorsController } from './authors/authors.controller'
 import { PostsController } from './posts/posts.controller'
 import { AuthorsModule } from './authors/authors.module'
 import { PostsModule } from './posts/posts.module'
+import { CommonModule } from './common/common.module'
 
 @Module({
   imports: [
     AuthorsModule,
     PostsModule,
+    CommonModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'apps/main-app/src/schema.gql'),

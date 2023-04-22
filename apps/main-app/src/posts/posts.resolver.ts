@@ -20,7 +20,7 @@ export class PostsResolver {
       return { ...value, content: 'super!!!' }
     },
   })
-  subscribeToCommentAdded(@Args('keyword') keyword: string) {
+  subscribeToCommentAdded(@Args('keyword') _keyword: string) {
     return pubSub.asyncIterator(COMMENT_ADDED)
   }
 

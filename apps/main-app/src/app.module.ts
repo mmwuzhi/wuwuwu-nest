@@ -12,6 +12,7 @@ import { PostsController } from './posts/posts.controller'
 import { AuthorsModule } from './authors/authors.module'
 import { PostsModule } from './posts/posts.module'
 import { CommonModule } from './common/common.module'
+import { FileController } from './file/file.controller'
 
 @Module({
   imports: [
@@ -51,7 +52,7 @@ import { CommonModule } from './common/common.module'
       },
     ]),
   ],
-  controllers: [AppController, CalcController, AuthorsController, PostsController],
+  controllers: [AppController, CalcController, AuthorsController, PostsController, FileController],
   providers: [AppService],
 })
 export class AppModule {}

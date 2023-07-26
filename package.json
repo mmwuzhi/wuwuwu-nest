@@ -96,9 +96,6 @@
     ],
     "*.ts": [
       "bash -c 'pnpm type-check'"
-    ],
-    "*.{yml,yaml,json,md}": [
-      "prettier --write"
     ]
   }
 }
